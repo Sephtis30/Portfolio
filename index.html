@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jade Martin S. Macayan — Computer Engineering student portfolio.">
+<title>Jade Martin S. Macayan | Computer Engineering Portfolio</title>
+<style>
+:root{--bg:#0b1018;--panel:#111a26;--panel2:#162231;--text:#eef4fb;--muted:#a5b4c7;--line:#29384a;--accent:#79e0cb;--blue:#83b9ff;--max:1160px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#0b1018eF;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:850;letter-spacing:.08em;font-size:.94rem}.brand span{color:var(--accent)}
+.links{display:flex;gap:25px;color:var(--muted);font-size:.9rem}.links a:hover{color:var(--accent)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;padding:84px 0 96px;min-height:690px}
+.micro{font-size:.75rem;letter-spacing:.17em;text-transform:uppercase;color:var(--accent);font-weight:800}
+h1{font-size:clamp(3rem,6vw,5.7rem);line-height:.99;letter-spacing:-.065em;margin:20px 0 24px}
+h1 span{color:var(--accent)}
+.hero p.lead{font-size:1.08rem;color:var(--muted);max-width:650px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:8px;border:1px solid #3a4d61;font-size:.9rem;font-weight:750;transition:.2s}
+.btn.primary{background:var(--accent);color:#091914;border-color:var(--accent)}.btn:hover{transform:translateY(-2px)}
+.status{display:flex;gap:10px;align-items:center;margin-top:27px;color:var(--muted);font-size:.84rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px #79e0cb80}
+.hero-visual{position:relative;min-height:470px;border:1px solid #314457;border-radius:22px;background:radial-gradient(circle at 70% 20%,#25465a 0,transparent 40%),linear-gradient(145deg,#172638,#0e151f);padding:22px;overflow:hidden}
+.visual-top{display:flex;justify-content:space-between;color:var(--muted);font-size:.72rem;letter-spacing:.12em}
+.portrait-frame{position:absolute;inset:64px 34px 34px;border-radius:16px;overflow:hidden;border:1px solid #536d7c;background:#1d2d3d}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(.83)}
+.image-label{position:absolute;bottom:0;left:0;right:0;padding:34px 18px 17px;background:linear-gradient(transparent,#08111eeF);font-size:.85rem}
+.image-label strong{display:block;font-size:1.05rem}.image-label span{color:#b7d5dc}
+.corner{position:absolute;width:45px;height:45px;border-color:var(--accent);border-style:solid;z-index:2}.corner.a{top:50px;left:20px;border-width:1px 0 0 1px}.corner.b{right:20px;bottom:20px;border-width:0 1px 1px 0}
+section{padding:82px 0;border-top:1px solid #1e2a38}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:30px}
+.chapter{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:800}
+h2{font-size:clamp(2rem,4vw,3rem);line-height:1.12;letter-spacing:-.04em;margin-top:8px}
+.sub{max-width:550px;color:var(--muted);font-size:.94rem}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.panel{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:27px}
+.panel p{color:var(--muted)}.panel p+p{margin-top:13px}
+.panel h3{font-size:1.15rem;margin-bottom:12px}
+.fact-list{display:grid;gap:11px;margin-top:18px}
+.fact{padding:12px 14px;border:1px solid #2b3a4c;border-radius:9px;background:#0c141e}
+.fact small{display:block;color:var(--accent);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}.fact strong{font-size:.93rem;font-weight:650}
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.vision-card{background:linear-gradient(140deg,#131f2d,#101721);border:1px solid var(--line);border-radius:16px;padding:28px}
+.vision-card .num{color:var(--accent);font-size:.74rem;letter-spacing:.14em;font-weight:800}
+.vision-card h3{font-size:1.35rem;margin:12px 0}.vision-card p{color:var(--muted)}
+.interests{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.interest{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--panel)}
+.interest .symbol{font-size:1.35rem;color:var(--accent);margin-bottom:8px}.interest strong{display:block;font-size:.95rem}.interest span{font-size:.8rem;color:var(--muted)}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.project{border:1px solid var(--line);background:var(--panel);border-radius:17px;overflow:hidden}
+.project-cover{height:255px;background:#152537;overflow:hidden;position:relative}
+.project-cover img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.project:hover .project-cover img{transform:scale(1.035)}
+.project-body{padding:25px}
+.project-index{font-size:.7rem;color:var(--accent);letter-spacing:.14em;font-weight:800}
+.project h3{font-size:1.35rem;line-height:1.3;margin:8px 0 12px}.project p{color:var(--muted);font-size:.94rem}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{font-size:.75rem;color:#c5d5e7;border:1px solid #34465a;border-radius:6px;padding:4px 8px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.gallery figure{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel)}
+.gallery img{display:block;width:100%;height:220px;object-fit:cover}.gallery figcaption{padding:11px 14px;color:var(--muted);font-size:.83rem}
+.contact-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px}
+.contact-line{display:flex;gap:13px;padding:16px 0;border-bottom:1px solid var(--line)}.contact-line:last-child{border-bottom:0}
+.contact-icon{flex:0 0 38px;height:38px;border:1px solid #3a5365;border-radius:9px;display:grid;place-items:center;color:var(--accent)}
+.contact-line small{display:block;color:var(--muted);font-size:.75rem}.contact-line a,.contact-line span{overflow-wrap:anywhere}
+.closing{background:radial-gradient(ellipse at 50% 120%,#173a42 0,transparent 65%);text-align:center;padding:95px 0}
+.closing h2{font-size:clamp(2.8rem,7vw,5rem);color:var(--accent);margin:14px 0 20px}
+.closing p{max-width:720px;margin:auto;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.82rem}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:820px){.hero{grid-template-columns:1fr;gap:34px;padding:60px 0}.hero-visual{min-height:440px}.about-grid,.contact-layout{grid-template-columns:1fr}.interests{grid-template-columns:1fr 1fr}.section-top{display:block}.sub{margin-top:12px}}
+@media(max-width:600px){nav{padding:15px 0;align-items:flex-start;flex-direction:column}.links{width:100%;justify-content:space-between;gap:8px;font-size:.81rem}.hero{min-height:auto}h1{font-size:3.3rem}.hero-visual{min-height:370px}.portrait-frame{inset:58px 23px 23px}.vision-grid,.project-grid,.gallery{grid-template-columns:1fr}.project-cover{height:230px}section{padding:62px 0}.interests{gap:9px}.interest{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a class="brand" href="#home">JMSM <span>// PORTFOLIO</span></a>
+    <div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#journey">Journey</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  </nav>
+</header>
+<main>
+  <section class="container hero" id="home" style="border-top:0">
+    <div>
+      <div class="micro">Portfolio / Computer Engineering</div>
+      <h1>Learning by<br><span>building.</span></h1>
+      <p class="lead">I'm Jade Martin S. Macayan, a Computer Engineering student at ICCT Colleges Foundation Inc. I'm interested in technology, computer systems, electronics, and solving problems through practical projects.</p>
+      <div class="actions"><a class="btn primary" href="#projects">Explore Projects ↘</a><a class="btn" href="#contact">Get in Touch</a></div>
+      <div class="status"><span class="dot"></span> Student portfolio · Academic projects & learning</div>
+    </div>
+    <div class="hero-visual">
+      <div class="visual-top"><span>FIELD NOTE // 001</span><span>QUEZON CITY, PH</span></div>
+      <span class="corner a"></span><span class="corner b"></span>
+      <div class="portrait-frame"><img src="assets/jade-portrait.jpeg" alt="Portrait photo from Jade's portfolio"><div class="image-label"><strong>Jade Martin S. Macayan</strong><span>Computer Engineering · ICCT Colleges</span></div></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-top"><div><div class="chapter">01 // Introduction</div><h2>About me</h2></div><p class="sub">A student portfolio documenting my academic activities, interests, and project work.</p></div>
+      <div class="about-grid">
+        <article class="panel"><h3>Where technology meets problem-solving.</h3><p>Welcome to my portfolio! I am a Computer Engineering student who is passionate about technology, computer systems, electronics, and problem-solving. This portfolio showcases my skills, knowledge, academic projects, and experiences throughout my journey as a student.</p><p>I am eager to learn new technologies, develop my technical abilities, and gain practical experience in a professional working environment. I hope to demonstrate my dedication, creativity, willingness to learn, and commitment to continuous improvement as I prepare for future career opportunities in Computer Engineering.</p></article>
+        <aside class="panel"><h3>Profile notes</h3><p>Quick details from my portfolio.</p><div class="fact-list"><div class="fact"><small>Name</small><strong>Jade Martin S. Macayan</strong></div><div class="fact"><small>Study</small><strong>Computer Engineering</strong></div><div class="fact"><small>Institution</small><strong>ICCT Colleges Foundation Inc.</strong></div><div class="fact"><small>Location</small><strong>Quezon City, Philippines</strong></div></div></aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="container">
+      <div class="section-top"><div><div class="chapter">02 // Direction</div><h2>Vision & mission</h2></div><p class="sub">The goals and values I bring to my continuing development as a future Computer Engineer.</p></div>
+      <div class="vision-grid">
+        <article class="vision-card"><div class="num">MY VISION</div><h3>Innovate with purpose.</h3><p>To become a competent, innovative, and responsible Computer Engineer who uses technology and technical skills to develop solutions that address real-world problems. I aspire to continuously improve my knowledge, embrace new technological advancements, and contribute positively to society through creativity, dedication, and lifelong learning.</p></article>
+        <article class="vision-card"><div class="num">MY MISSION</div><h3>Learn. Apply. Improve.</h3><p>My mission is to continuously develop my knowledge and skills in Computer Engineering through learning, hands-on experience, and practical application. I aim to strengthen my problem-solving abilities, embrace new technologies, and apply my technical knowledge to create effective and innovative solutions. I am committed to being responsible, hardworking, and adaptable while preparing for future professional opportunities and contributing positively to the community.</p></article>
+      </div>
+      <div style="margin-top:32px"><div class="chapter">Areas reflected in my portfolio</div><div class="interests">
+        <div class="interest"><div class="symbol">⌘</div><strong>Computer Systems</strong><span>Interest area</span></div>
+        <div class="interest"><div class="symbol">⌁</div><strong>Electronics</strong><span>Interest area</span></div>
+        <div class="interest"><div class="symbol">⚙</div><strong>Robotics</strong><span>Maze Runner project</span></div>
+        <div class="interest"><div class="symbol">▤</div><strong>Digital Solutions</strong><span>BOBOT project</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-top"><div><div class="chapter">03 // Featured works</div><h2>Projects</h2></div><p class="sub">Projects from my portfolio that connect digital systems, robotics, electronics, and practical problem-solving.</p></div>
+      <div class="project-grid">
+        <article class="project"><div class="project-cover"><img src="assets/bobot-system.jpeg" alt="Equipment borrowing system project display"></div><div class="project-body"><div class="project-index">PROJECT NOTE // 01</div><h3>“BOBOT” — A Digital Solution for Streamlining HM Equipment Borrowing</h3><p>BOBOT is designed to improve resource management in the Hospitality Management (HM) Department by streamlining equipment borrowing. The system aims to make the process more organized and convenient by helping track equipment, manage records, and reduce manual paperwork.</p><div class="tags"><span class="tag">Digital solution</span><span class="tag">Equipment tracking</span><span class="tag">Resource management</span></div></div></article>
+        <article class="project"><div class="project-cover"><img src="assets/maze-runner-robot.jpeg" alt="Maze Runner robot built for a student project"></div><div class="project-body"><div class="project-index">PROJECT NOTE // 02</div><h3>Maze Runner Robot</h3><p>An automated robot designed to navigate a maze and find its destination. Using sensors and programmed algorithms, it detects walls, avoids obstacles, and determines a path to the goal. The project demonstrates robotics, programming, electronics, and problem-solving in an autonomous system.</p><div class="tags"><span class="tag">Robotics</span><span class="tag">Sensors</span><span class="tag">Programming</span><span class="tag">Electronics</span></div></div></article>
+      </div>
+      <div class="gallery">
+        <figure><img src="assets/bobot-interface.jpeg" alt="Interface shown in the BOBOT project presentation"><figcaption>BOBOT — system interface shown in the portfolio slides</figcaption></figure>
+        <figure><img src="assets/robot-maze-demo.jpeg" alt="Maze runner demonstration"><figcaption>Maze Runner — project demonstration</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-top"><div><div class="chapter">04 // Transmission</div><h2>Get in touch</h2></div><p class="sub">Thank you for exploring my portfolio. You can contact me through the details below.</p></div>
+      <div class="contact-layout">
+        <div class="panel"><h3>Direct channels</h3>
+          <div class="contact-line"><div class="contact-icon">✉</div><div><small>Email</small><a href="mailto:jademartin0530@gmail.com">jademartin0530@gmail.com</a></div></div>
+          <div class="contact-line"><div class="contact-icon">☎</div><div><small>Phone</small><a href="tel:+639939137936">+639939137936</a></div></div>
+          <div class="contact-line"><div class="contact-icon">⌖</div><div><small>Location</small><span>Area - 6 Brgy. Botocan, Quezon City</span></div></div>
+        </div>
+        <div class="panel"><div class="chapter">Student showcase</div><h3 style="font-size:1.5rem;margin-top:12px">Progress through practice.</h3><p>My portfolio represents my dedication, creativity, and passion for technology. I look forward to continuing to learn, grow, and develop my abilities in Computer Engineering. Your time and consideration are sincerely appreciated.</p><div class="actions"><a class="btn primary" href="mailto:jademartin0530@gmail.com">Send an Email ↗</a><a class="btn" href="#home">Back to Top ↑</a></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="closing"><div class="container"><div class="chapter">End of portfolio</div><h2>Thank you.</h2><p>Thank you for taking the time to explore my work and learning experiences as a Computer Engineering student.</p></div></section>
+</main>
+<footer><div class="container footer-inner"><span>© <span id="year"></span> Jade Martin S. Macayan</span><span>Computer Engineering · ICCT Colleges Foundation Inc.</span></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
